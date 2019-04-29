@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -w",
-    "start": "node program.js"
+    "start": "./dist/program.js"
+    //"start": "node program.js"
   },
   "keywords": [],
   "author": "",

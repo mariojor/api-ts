@@ -19,7 +19,7 @@ class NewsService{
     }
 
     delete(_id){
-        return NewsRepository.findOneAndRemove(_id);
+        return NewsRepository.findByIdAndDelete(_id);
     }
 }
 
