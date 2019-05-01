@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -w",
-    "start": "node ./dist/program.js"
+    "start": "nodemon ./dist/program.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +18,9 @@
     "http-status": "^1.3.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.4",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.11",
+    "redis": "^2.8.0",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
   },
@@ -28,6 +31,8 @@
     "@types/http-status": "^0.2.30",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/mongoose": "^5.3.27",
-    "@types/node": "^11.13.8"
+    "@types/multer": "^1.3.7",
+    "@types/node": "^11.13.8",
+    "@types/redis": "^2.8.12"
   }
 }

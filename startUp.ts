@@ -3,8 +3,9 @@ import * as bodyParser from "body-parser";
 import * as cors from "cors";
 
 import Db from "./infra/db";
-import NewsController from "./controller/newsController";
 import Auth from "./infra/auth";
+import uploads from "./infra/uploads";
+import newsRouter from "./router/newsRouter";
 
 class StartUp {
     public app: express.Application;
@@ -39,18 +40,24 @@ class StartUp {
 
     routes() {
 
-        this.app.route('/').get((req, res) => {
-            res.send({ versao: "0.0.1" })
+        this.app.route("/").get((req, res) => {
+            res.send({ versao: "0.0.1" });
         });
 
-        this.app.use(Auth.validate);
+        this.app.route("/uploads").post(uploads.single("file"),(req, res) => {
+            
+            try{
+                res.send("Arquivo enviado com sucesso.");
+            }catch(error){
+                console.log(error);
+            }
+            
+        });
 
-        this.app.route("/api/v1/news").get(NewsController.get);
-        this.app.route("/api/v1/news/:id").get(NewsController.getById);
-        this.app.route("/api/v1/news").post(NewsController.create);
-        this.app.route("/api/v1/news/:id").put(NewsController.update);
-        this.app.route("/api/v1/news/:id").delete(NewsController.delete);
+        //this.app.use(Auth.validate);
 
+        
+        this.app.use("/", newsRouter)
     }
 
 
